@@ -11,11 +11,13 @@ DaftGame::~DaftGame()
 void DaftGame::Init(const char* title, int xPos, int yPos, int width, int height, bool fullScreen)
 {
 	int daftFlags = 0;
-
+	
+	// fullScreen이면 daftFlag를 fullScreen으로.
 	if (fullScreen) {
 		daftFlags = SDL_WINDOW_FULLSCREEN;
 	}
 
+	// SDL_Init가 0이면 윈도우와 렌더러를 생성해준다.
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
 		cout << "SubSystem Init!" << endl;
@@ -67,6 +69,7 @@ void DaftGame::Render()
 	SDL_RenderPresent(renderer);
 }
 
+// Daft Engine이 종료되면, SDL 관련 부분을 제거해줍니다.
 void DaftGame::EndClear()
 {
 	SDL_DestroyWindow(window);
