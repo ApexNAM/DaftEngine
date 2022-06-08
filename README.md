@@ -39,7 +39,7 @@ Daft Engine은 SkagoGames (!CyberApex) 에서만 사용되는 내부용 도구�
 2. *Python (스크립트 언어 후보 2, Daft Engine에서 사용되는 스크립트 언어입니다.)*
 - *혼란한 구조, 객체지향 지원*
 
-## ~~Remove Use.
-1. ~~SDL2 (Rendering, 게임 렌더링을 위해 필수적이였던 API입니다.)
+## ~~Remove Use.~~
+1. ~~SDL2 (Rendering, 게임 렌더링을 위해 필수적이였던 API입니다.)~~
 
 *진행중인 프로젝트입니다. ReadMe 페이지는 수정 예정. made in Skago. 2022.*
