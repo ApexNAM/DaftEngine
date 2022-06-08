@@ -7,18 +7,27 @@
     <Filter Include="Assets">
       <UniqueIdentifier>{e8e01193-e48b-4d69-8105-9c2e5b6b3a46}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Main">
+      <UniqueIdentifier>{dd249205-b145-45db-a99a-f70c6b3c8973}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Core">
+      <UniqueIdentifier>{51477766-c1f3-4e3e-ab54-af7dbe2b6b43}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Sources\DaftGame.cpp">
-      <Filter>Sources</Filter>
+    <ClCompile Include="Sources\Core\DaftGame.cpp">
+      <Filter>Sources\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\main.cpp">
+    <ClCompile Include="Sources\Main\main.cpp">
+      <Filter>Sources\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\GLAD\src\glad.c">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Sources\DaftGame.h">
-      <Filter>Sources</Filter>
+    <ClInclude Include="Sources\Core\DaftGame.h">
+      <Filter>Sources\Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
