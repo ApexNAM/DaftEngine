@@ -13,6 +13,9 @@
     <Filter Include="Sources\Core">
       <UniqueIdentifier>{51477766-c1f3-4e3e-ab54-af7dbe2b6b43}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Shader">
+      <UniqueIdentifier>{7879d307-fb1d-47c0-8bb1-29ab7b8c5892}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\Core\DaftGame.cpp">
