@@ -15,8 +15,8 @@ Daft Engine은 기존에 활용했던 상용엔진 응용을 그만두고, 독�
 1993년부터 2021년까지 활동했던 전자 음악 아티스트 듀오 "다프트 펑크"를 기념하기 위해\
 Daft Engine이라는 이름으로 설정했습니다.
 
-Daft Engine은 우리가 알고 있는 Unity, Unreal Engine과 비슷한 분량의 엔진이 아닙니다.\
-개인 프로젝트 개발에서 꼭 필요한 기능만 구현 예정입니다.
+Daft Engine은 우리가 알고 있는 Unity, Unreal Engine과 비슷한 분량이 아닌\
+개인개발에 필요한 기능만 구현된 조건맟춤 용도 구조입니다.
 
 ## 사용 목적
 Daft Engine은 SkagoGames (!CyberApex) 에서만 사용되는 내부용 도구입니다.\
