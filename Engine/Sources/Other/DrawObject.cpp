@@ -1,13 +1,5 @@
 #include "DrawObject.h"
 
-DrawObject::DrawObject()
-{
-}
-
-DrawObject::~DrawObject()
-{
-}
-
 void DrawObject::Init()
 {
     ourShader.CreateShader("./Sources/Shader/vertex.frag", "./Sources/Shader/fragment.frag");
