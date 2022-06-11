@@ -25,22 +25,29 @@ string Triangle::readShaderSource(const char* filePath)
 	return content;
 }
 
+// 트라이앵글 시작
 void Triangle::Init()
 {
 	int success; char infoLog[512];
 
+	// glsl 불어오기
 	vertexShaderSource = vertexShaderString.c_str();
 	fragmentShaderSource = fragmentShaderString.c_str();
 	
-	vertexShader = glCreateShader(GL_VERTEX_SHADER);
-	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+	vertexShader = glCreateShader(GL_VERTEX_SHADER); // 버텍스 쉐이더 생성
+	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER); // 프레이먼트 쉐이더 생성
 
+	// 소스 불러오기
 	glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
 	glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
 
+	// 쉐이더 컴파일 함수
 	glCompileShader(vertexShader);
 	glCompileShader(fragmentShader);
 
+	/*
+		컴파일 완료 판정 코드들 (51 ~ 61)
+	*/
 
 	glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
 	if (!success) {
@@ -54,22 +61,25 @@ void Triangle::Init()
 		std::cout << "Error : Shader::fragment:: Comp failed\n" << infoLog << std::endl;
 	}
 
-	shaderProgram = glCreateProgram();
-	glAttachShader(shaderProgram, vertexShader);
-	glAttachShader(shaderProgram, fragmentShader);
+	shaderProgram = glCreateProgram(); // 쉐이더 프로그램 생성
+	glAttachShader(shaderProgram, vertexShader); // 버텍스 적용
+	glAttachShader(shaderProgram, fragmentShader); // 프레이먼트 적용
 
-	glLinkProgram(shaderProgram);
+	glLinkProgram(shaderProgram); // 링크화
 
+	// 링크 판정
 	glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
 	if (!success) {
 		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
 		std::cout << "Error : Shader::Program:: Link failed\n" << infoLog << std::endl;
 	}
 
+	// 버텍스와 프레이먼트 쉐이더 초기화 
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
 }
 
+// 트라이앵글 생성
 void Triangle::Create()
 {
 	float verticles[] = {
@@ -93,7 +103,24 @@ void Triangle::Create()
 	glBindVertexArray(0);
 }
 
-void Triangle::CreateRect()
+// 트라이앵글 그리기
+void Triangle::Draw()
+{
+	glUseProgram(shaderProgram);
+	glBindVertexArray(VAO);
+	glDrawArrays(GL_TRIANGLES, 0, 3);
+}
+
+// 트라이앵글 삭제 
+void Triangle::Delete()
+{
+	glDeleteVertexArrays(1, &VAO);
+	glDeleteBuffers(1, &VBO);
+	glDeleteProgram(shaderProgram);
+}
+
+
+void Rect::Create()
 {
 	float verticles[] = {
 	0.5f, 0.5f, 0.0f, // left
@@ -126,28 +153,14 @@ void Triangle::CreateRect()
 	glBindVertexArray(0);
 }
 
-void Triangle::Draw()
-{
-	glUseProgram(shaderProgram);
-	glBindVertexArray(VAO);
-	glDrawArrays(GL_TRIANGLES, 0, 3);
-}
-
-void Triangle::DrawRect()
+void Rect::Draw()
 {
 	glUseProgram(shaderProgram);
 	glBindVertexArray(VAO);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
 
-void Triangle::DeleteTriangle()
-{
-	glDeleteVertexArrays(1, &VAO);
-	glDeleteBuffers(1, &VBO);
-	glDeleteProgram(shaderProgram);
-}
-
-void Triangle::DeleteRect()
+void Rect::Delete()
 {
 	glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);

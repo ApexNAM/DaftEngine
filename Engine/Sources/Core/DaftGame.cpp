@@ -36,15 +36,15 @@ bool DaftGame::Initialize()
 
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 	triangle.Init();
+	// rect.Init();
+
 	return true;
 }
 
 void DaftGame::RunLoop()
 {
-	if (objType == ObjectType::TriangleType)
-		triangle.Create();
-	else if (objType == ObjectType::RectType)
-		triangle.CreateRect();
+	triangle.Create();
+	// rect.Create();
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -56,11 +56,8 @@ void DaftGame::RunLoop()
 
 void DaftGame::DaftEnd()
 {
-	if (objType == ObjectType::TriangleType)
-		triangle.DeleteTriangle();
-	else if (objType == ObjectType::RectType)
-		triangle.DeleteRect();
-
+	triangle.Delete();
+	// rect.Delete();
 	glfwTerminate();
 }
 
@@ -70,6 +67,7 @@ void DaftGame::ProcessInput()
 		glfwSetWindowShouldClose(window, true);
 
 	triangle.Show(window);
+	// rect.Show(window);
 }
 
 void DaftGame::DaftUpdate()
@@ -77,10 +75,8 @@ void DaftGame::DaftUpdate()
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	if (objType == ObjectType::TriangleType)
-		triangle.Draw();
-	else if (objType == ObjectType::RectType)
-		triangle.DrawRect();
+	triangle.Draw();
+	// rect.Draw();
 }
 
 void DaftGame::GenerateOutput()
