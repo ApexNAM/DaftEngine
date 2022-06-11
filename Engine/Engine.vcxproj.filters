@@ -19,6 +19,9 @@
     <Filter Include="Sources\Other">
       <UniqueIdentifier>{a2655b78-deca-4a93-845f-23b4c11d7307}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Render">
+      <UniqueIdentifier>{b0c9a05a-2e4a-4f26-9375-325c5dd5784f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\Core\DaftGame.cpp">
@@ -30,15 +33,19 @@
     <ClCompile Include="Dependencies\GLAD\src\glad.c">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\Other\Triangle.cpp">
+    <ClCompile Include="Sources\Other\DrawObject.cpp">
       <Filter>Sources\Other</Filter>
     </ClCompile>
+    <ClCompile Include="Sources\Render\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sources\Core\DaftGame.h">
       <Filter>Sources\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Sources\Other\Triangle.h">
+    <ClInclude Include="Sources\Render\Shader.h">
+      <Filter>Sources\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Other\DrawObject.h">
       <Filter>Sources\Other</Filter>
     </ClInclude>
   </ItemGroup>

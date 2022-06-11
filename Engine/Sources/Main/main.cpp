@@ -6,8 +6,7 @@ int main()
 	DaftGame game;
 	bool success = game.Initialize();
 
-	if (success)
-	{
+	if (success) {
 		game.RunLoop();
 	}
 

@@ -4,14 +4,12 @@
 #include <glfw3.h>
 
 #include <iostream>
-#include "../Other/Triangle.h"
+#include "../Other/DrawObject.h"
 
 class DaftGame
 {
 public:
-	DaftGame() 
-	{
-	};
+	DaftGame();
 
 	bool Initialize();
 	void RunLoop();
@@ -22,7 +20,6 @@ private:
 	void GenerateOutput();
 
 	GLFWwindow* window;
-	Triangle triangle;
-	Rect rect;
+	DrawObject drawObj;
 };
 

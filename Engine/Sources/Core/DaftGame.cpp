@@ -5,6 +5,10 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 	glViewport(0, 0, width, height);
 }
 
+DaftGame::DaftGame()
+{
+}
+
 bool DaftGame::Initialize()
 {
 	glfwInit();
@@ -18,14 +22,18 @@ bool DaftGame::Initialize()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	// glfwWindowHint(GLFW_DECORATED, false); // 윈도우 타이틀바 비활성화
 
-	window = glfwCreateWindow(1024, 768, "Daft Engine", NULL, NULL);
+	window = glfwCreateWindow(1280, 720, "Daft Engine", NULL, NULL);
+
 	if (window == NULL)
 	{
 		std::cout << "Error : Failed Window" << std::endl;
 		glfwTerminate();
 		return false;
 	}
+
+	// glfwSetWindowPos(window, 300,150 );
 	glfwMakeContextCurrent(window);
 
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -35,29 +43,25 @@ bool DaftGame::Initialize()
 	}
 
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-	triangle.Init();
-	// rect.Init();
 
+	drawObj.Init();
 	return true;
 }
 
 void DaftGame::RunLoop()
 {
-	triangle.Create();
-	// rect.Create();
-
 	while (!glfwWindowShouldClose(window))
 	{
 		ProcessInput();
 		DaftUpdate();
 		GenerateOutput();
 	}
+
+	drawObj.RemoveDelete();
 }
 
 void DaftGame::DaftEnd()
 {
-	triangle.Delete();
-	// rect.Delete();
 	glfwTerminate();
 }
 
@@ -66,8 +70,10 @@ void DaftGame::ProcessInput()
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, true);
 
-	triangle.Show(window);
-	// rect.Show(window);
+	if (glfwGetKey(window, GLFW_KEY_TAB) == GLFW_PRESS)
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	else
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 }
 
 void DaftGame::DaftUpdate()
@@ -75,8 +81,7 @@ void DaftGame::DaftUpdate()
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	triangle.Draw();
-	// rect.Draw();
+	drawObj.Draw();
 }
 
 void DaftGame::GenerateOutput()
