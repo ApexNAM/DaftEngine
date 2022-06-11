@@ -5,7 +5,7 @@
 class DrawObject
 {
 private:
-	unsigned int VBO, VAO;
+	GLuint VBO, VAO;
 	Shader ourShader;
 public:
 	DrawObject();
