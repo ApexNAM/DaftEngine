@@ -2,11 +2,8 @@
 
 void Shader::CreateShader(const GLchar* vertexPath, const GLchar* fragmentPath)
 {
-	std::string vertexCode;
-	std::string fragmentCode;
-
-	std::ifstream vShaderFile;
-	std::ifstream fShaderFile;
+	std::string vertexCode, fragmentCode;
+	std::ifstream vShaderFile, fShaderFile;
 
 	vShaderFile.exceptions(std::ifstream::badbit);
 	fShaderFile.exceptions(std::ifstream::badbit);
