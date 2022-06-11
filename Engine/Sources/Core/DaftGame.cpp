@@ -5,10 +5,6 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 	glViewport(0, 0, width, height);
 }
 
-DaftGame::DaftGame()
-{
-}
-
 bool DaftGame::Initialize()
 {
 	glfwInit();
@@ -39,12 +35,14 @@ bool DaftGame::Initialize()
 	}
 
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-
+	triangle.Init();
 	return true;
 }
 
 void DaftGame::RunLoop()
 {
+	triangle.Create();
+
 	while (!glfwWindowShouldClose(window))
 	{
 		ProcessInput();
@@ -55,6 +53,7 @@ void DaftGame::RunLoop()
 
 void DaftGame::DaftEnd()
 {
+	triangle.DeleteTriangle();
 	glfwTerminate();
 }
 
@@ -62,15 +61,17 @@ void DaftGame::ProcessInput()
 {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, true);
-
-	glfwSwapBuffers(window);
-	glfwPollEvents();
 }
 
 void DaftGame::DaftUpdate()
 {
+	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
+	triangle.Draw();
 }
 
 void DaftGame::GenerateOutput()
 {
+	glfwSwapBuffers(window);
+	glfwPollEvents();
 }

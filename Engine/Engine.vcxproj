@@ -22,9 +22,11 @@
     <ClCompile Include="Dependencies\GLAD\src\glad.c" />
     <ClCompile Include="Sources\Core\DaftGame.cpp" />
     <ClCompile Include="Sources\Main\main.cpp" />
+    <ClCompile Include="Sources\Other\Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sources\Core\DaftGame.h" />
+    <ClInclude Include="Sources\Other\Triangle.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
