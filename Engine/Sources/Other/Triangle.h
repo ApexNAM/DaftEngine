@@ -14,7 +14,7 @@ using std::ios;
 class Triangle
 {
 private:
-	unsigned int VBO, VAO;
+	unsigned int VBO, VAO, EBO;
 	unsigned int vertexShader;
 	unsigned int fragmentShader;
 	unsigned int shaderProgram;
@@ -33,7 +33,14 @@ public:
 
 	void Init();
 	void Create();
+	void CreateRect();
+
 	void Draw();
+	void DrawRect();
+
 	void DeleteTriangle();
+	void DeleteRect();
+
+	void Show(GLFWwindow* window);
 };
 

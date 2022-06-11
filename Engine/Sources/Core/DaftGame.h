@@ -6,6 +6,12 @@
 #include <iostream>
 #include "../Other/Triangle.h"
 
+enum ObjectType
+{
+	TriangleType,
+	RectType
+};
+
 class DaftGame
 {
 public:
@@ -23,5 +29,6 @@ private:
 
 	GLFWwindow* window;
 	Triangle triangle;
+	ObjectType objType = RectType;
 };
 
