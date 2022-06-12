@@ -78,14 +78,16 @@ void DaftGame::ProcessInput()
 
 void DaftGame::DaftUpdate()
 {
-	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
 
-	drawObj.Draw();
 }
 
 void DaftGame::GenerateOutput()
 {
+	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	drawObj.Draw();
+
 	glfwSwapBuffers(window);
 	glfwPollEvents();
 }
