@@ -2,7 +2,7 @@
 
 void DrawObject::Init()
 {
-    ourShader.CreateShader("./Sources/Shader/vertex.vert", "./Sources/Shader/fragment.frag");
+    ourShader.CreateShader("./Sources/Shader/default.vert", "./Sources/Shader/default.frag");
 
 	float vertices[] = {
         // positions         // colors
